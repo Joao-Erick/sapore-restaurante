@@ -1,0 +1,1328 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* =====================================
+   SAPORE 2.0 - IDENTIDADE VISUAL PREMIUM
+===================================== */
+
+/* VARIÁVEIS */
+:root {
+    --fundo: #22211f;
+    --destaque: #c16d45;
+    --destaque-hover: #a95632;
+    --texto: #f5f0e8;
+    --texto-suave: #c9c2b9;
+    --creme: #f5f0e8;
+    --escuro: #171615;
+}
+
+/* GERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+section[id] {
+    scroll-margin-top: 120px;
+}
+
+/* =====================================
+   CABEÇALHO PREMIUM
+===================================== */
+
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(19, 17, 16, 0.93);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(245, 240, 232, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    transition: background .3s, box-shadow .3s;
+}
+
+.cabecalho.rolagem {
+    background: rgba(19, 17, 16, 0.98);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.navegacao {
+    max-width: 1200px;
+    margin: auto;
+    padding: 23px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--destaque);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+    list-style: none;
+}
+
+.menu a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    font-size: 15px;
+    font-weight: 600;
+    transition: color .3s;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: var(--destaque);
+    transition: width .3s ease;
+}
+
+.menu a:hover {
+    color: var(--destaque);
+}
+
+.menu a:hover::after,
+.menu a:focus-visible::after {
+    width: 100%;
+}
+
+/* MENU HAMBÚRGUER */
+.menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid rgba(245, 240, 232, .3);
+    border-radius: 6px;
+    color: var(--texto);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    transition: border-color .3s;
+}
+
+.menu-toggle:hover {
+    border-color: var(--destaque);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    background: var(--texto);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+}
+
+.menu-toggle.ativo span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.ativo span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.ativo span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =====================================
+   PÁGINA INICIAL - HERO PREMIUM
+===================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #171310;
+}
+
+/* Fotografia real: sem filtros artificiais */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background-image: url('assets/restaurante-sapore.jpg');
+    background-size: cover;
+    background-position: 60% center;
+    background-repeat: no-repeat;
+    filter: none;
+    transform: scale(1.01);
+}
+
+/* Contraste à esquerda, preservando a foto à direita */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(12, 10, 9, .92) 0%,
+        rgba(12, 10, 9, .78) 30%,
+        rgba(12, 10, 9, .48) 55%,
+        rgba(12, 10, 9, .10) 100%
+    );
+    pointer-events: none;
+}
+
+.hero-conteudo {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 170px 24px 100px;
+    position: relative;
+}
+
+.subtitulo {
+    display: inline-block;
+    color: var(--destaque);
+    letter-spacing: 4px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Detalhe decorativo do subtítulo */
+.hero .subtitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: #df9a75;
+    font-size: 12px;
+    letter-spacing: 4.5px;
+}
+
+.hero .subtitulo::before {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 1px;
+    background: var(--destaque);
+    flex-shrink: 0;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 5.4vw, 76px);
+    font-weight: 500;
+    letter-spacing: -1.8px;
+    line-height: 1.16;
+    max-width: 800px;
+    margin: 28px 0 26px;
+    text-wrap: balance;
+    text-shadow: 0 4px 28px rgba(0, 0, 0, .22);
+}
+
+.hero h1 span,
+.sobre-conteudo h2 span,
+.secao-titulo h2 span,
+.reservas-apresentacao h2 span {
+    color: var(--destaque);
+}
+
+.hero h1 span {
+    color: #d88a63;
+}
+
+.hero p {
+    max-width: 535px;
+    line-height: 1.95;
+    font-size: 17px;
+    color: #e0d8cf;
+    font-weight: 400;
+}
+
+.hero-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 38px;
+}
+
+/* =====================================
+   BOTÕES
+===================================== */
+
+.btn {
+    display: inline-block;
+    padding: 16px 30px;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-align: center;
+    transition:
+        background .3s,
+        color .3s,
+        transform .3s,
+        box-shadow .3s,
+        border-color .3s;
+}
+
+.btn-primario {
+    background: var(--destaque);
+    color: white;
+    border: 1px solid var(--destaque);
+}
+
+.btn-primario:hover {
+    background: var(--destaque-hover);
+    border-color: var(--destaque-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .22);
+}
+
+.btn-secundario {
+    border: 1px solid rgba(245, 240, 232, .7);
+    color: var(--texto);
+    background: rgba(20, 17, 15, .2);
+}
+
+.btn-secundario:hover {
+    background: var(--texto);
+    color: var(--fundo);
+    transform: translateY(-3px);
+}
+
+/* =====================================
+   SOBRE NÓS
+===================================== */
+
+.sobre {
+    padding: 120px 24px;
+    background: var(--creme);
+    color: var(--fundo);
+}
+
+.sobre-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+/* Fotografia artesanal — acabamento editorial */
+.sobre-imagem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 20px 45px rgba(40, 30, 20, 0.12);
+}
+
+.sobre-imagem img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.sobre-imagem:hover img {
+    transform: scale(1.035);
+}
+
+.sobre-conteudo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    line-height: 1.2;
+    margin: 20px 0 30px;
+}
+
+.sobre-conteudo p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #625c56;
+    margin-bottom: 20px;
+}
+
+.sobre-conteudo .btn {
+    margin-top: 20px;
+}
+
+/* =====================================
+   CARDÁPIO
+===================================== */
+
+.cardapio {
+    padding: 110px 24px;
+    background: var(--fundo);
+}
+
+.cardapio-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.secao-titulo {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.secao-titulo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4vw, 54px);
+    margin: 16px 0;
+}
+
+.secao-titulo p {
+    color: var(--texto-suave);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.filtros-cardapio {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 45px;
+}
+
+.filtro {
+    background: transparent;
+    border: 1px solid #625c56;
+    color: var(--texto);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 15px;
+    transition: .3s;
+}
+
+.filtro:hover,
+.filtro.ativo {
+    background: var(--destaque);
+    border-color: var(--destaque);
+    color: white;
+}
+
+.lista-pratos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.prato {
+    background: #2d2b29;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform .3s;
+}
+
+.prato:hover {
+    transform: translateY(-6px);
+}
+
+.prato img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.prato-conteudo {
+    padding: 24px;
+}
+
+.prato-categoria {
+    color: var(--destaque);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.prato-conteudo h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin: 12px 0;
+}
+
+.prato-conteudo p {
+    color: var(--texto-suave);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 76px;
+}
+
+.prato-preco {
+    display: block;
+    margin-top: 18px;
+    color: var(--destaque);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+/* =====================================
+   RESERVAS
+===================================== */
+
+.reservas {
+    padding: 145px 24px 120px;
+    background: #f5f0e8;
+    color: #22211f;
+}
+
+.reservas-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 80px;
+}
+
+.reservas-apresentacao {
+    padding-top: 35px;
+}
+
+.reservas-apresentacao h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 1.2;
+    margin: 20px 0 30px;
+}
+
+.reservas-apresentacao > p {
+    color: #625c56;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.reservas-informacoes {
+    margin-top: 40px;
+    padding: 25px;
+    background: #e9e1d7;
+    border-left: 4px solid var(--destaque);
+    border-radius: 5px;
+}
+
+.reservas-informacoes h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.reservas-informacoes p {
+    color: #625c56;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+
+/* =====================================
+   RESERVAS — DIFERENCIAIS PREMIUM
+===================================== */
+
+.reservas-diferenciais {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    margin-top: 36px;
+}
+
+.reserva-diferencial {
+    display: flex;
+    align-items: flex-start;
+    gap: 17px;
+}
+
+.diferencial-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 38px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(193, 109, 69, 0.35);
+    border-radius: 50%;
+    background: rgba(193, 109, 69, 0.08);
+    color: var(--destaque);
+    font-size: 17px;
+    line-height: 1;
+}
+
+.reserva-diferencial h3 {
+    margin: 0 0 5px;
+    color: var(--fundo);
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.reserva-diferencial p {
+    margin: 0;
+    color: #625c56;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.reservas-informacoes {
+    margin-top: 42px;
+}
+
+@media (max-width: 768px) {
+    .reservas-diferenciais {
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .reserva-diferencial h3 {
+        font-size: 19px;
+    }
+}
+
+/* FORMULÁRIO */
+.reservas-formulario {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .07);
+}
+
+.reservas-formulario h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.formulario-introducao {
+    color: #625c56;
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 20px;
+}
+
+.campo label {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #d6d0ca;
+    border-radius: 5px;
+    background: white;
+    color: #22211f;
+    font-size: 16px;
+    outline: none;
+    transition: border-color .3s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: var(--destaque);
+}
+
+.campo textarea,
+#observacoes {
+    display: block;
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    margin: 0;
+    resize: vertical;
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 0;
+    direction: ltr;
+    white-space: pre-wrap;
+    box-sizing: border-box;
+}
+
+.formulario-linha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.btn-reserva {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.aviso-demonstracao {
+    color: #625c56;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 18px;
+}
+
+.mensagem-reserva {
+    display: none;
+    margin-top: 22px;
+    padding: 20px;
+    border-radius: 6px;
+    line-height: 1.8;
+}
+
+.mensagem-reserva.sucesso {
+    display: block;
+    background: #e5f3e7;
+    color: #20582b;
+    border: 1px solid #a9d7b1;
+}
+
+.mensagem-reserva.erro {
+    display: block;
+    background: #fff0ed;
+    color: #912e20;
+    border: 1px solid #edb8ad;
+}
+
+/* =====================================
+   CONTATO
+===================================== */
+
+.contato {
+    padding: 110px 24px;
+    background: #262421;
+    color: var(--texto);
+}
+
+.contato-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contato-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.contato-card {
+    background: #302d29;
+    padding: 38px 28px;
+    border: 1px solid #403b35;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform .3s, border-color .3s;
+}
+
+.contato-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--destaque);
+}
+
+/* ÍCONES PADRONIZADOS */
+.contato-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 20px;
+    color: var(--destaque);
+}
+
+.contato-icone svg {
+    display: block;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    flex-shrink: 0;
+}
+
+.contato-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 18px;
+}
+
+.contato-card p {
+    color: var(--texto-suave);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.contato-card span {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--destaque);
+}
+
+.contato-aviso {
+    margin-top: 45px;
+    text-align: center;
+    color: #aaa39a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =====================================
+   RODAPÉ
+===================================== */
+
+.rodape {
+    background: var(--escuro);
+    color: var(--texto);
+    padding: 75px 24px 25px;
+}
+
+.rodape-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.rodape-superior {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 55px;
+}
+
+.rodape-marca p {
+    max-width: 300px;
+    color: #aaa39a;
+    margin-top: 18px;
+    line-height: 1.8;
+}
+
+.rodape-links,
+.rodape-informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.rodape-links h3,
+.rodape-informacoes h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.rodape-links a,
+.rodape-informacoes p {
+    color: #aaa39a;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.rodape-links a:hover {
+    color: var(--destaque);
+}
+
+.rodape-inferior {
+    border-top: 1px solid #38332e;
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: #aaa39a;
+    font-size: 13px;
+}
+
+/* =====================================
+   ACESSIBILIDADE
+===================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--destaque);
+    outline-offset: 3px;
+}
+
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (max-width: 900px) {
+    .lista-pratos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sobre-container,
+    .reservas-container {
+        gap: 40px;
+    }
+
+    .contato-grid {
+        gap: 15px;
+    }
+
+    .contato-card {
+        padding: 30px 18px;
+    }
+}
+
+/* =====================================
+   CELULARES
+===================================== */
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 90px;
+    }
+
+    section[id] {
+        scroll-margin-top: 90px;
+    }
+
+    .navegacao {
+        position: relative;
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 30px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 20px 20px;
+        background: rgba(19, 17, 16, .98);
+        border-top: 1px solid rgba(245, 240, 232, .12);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, .2);
+    }
+
+    .menu.aberto {
+        display: flex;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    .menu a {
+        display: block;
+        padding: 12px 8px;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .menu a::after {
+        display: none;
+    }
+
+    .hero::before {
+        background-position: 60% center;
+        filter: none;
+    }
+
+    .hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(12, 10, 9, .88) 0%,
+            rgba(12, 10, 9, .72) 60%,
+            rgba(12, 10, 9, .48) 100%
+        );
+    }
+
+    .hero-conteudo {
+        padding-top: 145px;
+        padding-bottom: 85px;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 8vw, 45px);
+        letter-spacing: -1px;
+        overflow-wrap: break-word;
+    }
+
+    .hero p {
+        font-size: 16px;
+        line-height: 1.85;
+    }
+
+    .hero .subtitulo {
+        font-size: 11px;
+        letter-spacing: 2.5px;
+        gap: 10px;
+    }
+
+    .hero .subtitulo::before {
+        width: 22px;
+    }
+
+    .sobre,
+    .reservas {
+        padding: 90px 24px 70px;
+    }
+
+    .sobre-container,
+    .reservas-container {
+        grid-template-columns: 1fr;
+    }
+
+    .sobre-imagem img {
+        height: 350px;
+    }
+
+    .cardapio {
+        padding: 70px 20px;
+    }
+
+    .lista-pratos {
+        grid-template-columns: 1fr;
+    }
+
+    .reservas-formulario {
+        padding: 25px;
+    }
+
+    .contato {
+        padding: 75px 20px;
+    }
+
+    .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .rodape-superior {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .rodape-inferior {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* =====================================
+   TELAS PEQUENAS
+===================================== */
+
+@media (max-width: 480px) {
+    .hero::before {
+        background-position: 65% center;
+    }
+
+    .hero::after {
+        background: rgba(12, 10, 9, .70);
+    }
+
+    .formulario-linha {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hero h1 {
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.2;
+    }
+
+    .hero-conteudo {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .reservas-formulario {
+        padding: 22px 18px;
+    }
+
+    .hero-botoes .btn {
+        width: 100%;
+    }
+
+    .prato img {
+        height: 210px;
+    }
+}
+
+/* =====================================
+   MOVIMENTO REDUZIDO
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   SAPORE 2.0 — REFINAMENTO FINAL DO HERO
+   ========================================= */
+
+/* Mantém a fotografia natural e bem enquadrada */
+.hero::before {
+    background-position: 60% center;
+    filter: none;
+}
+
+/* Melhora o contraste somente na área do texto */
+.hero::after {
+    background: linear-gradient(
+        90deg,
+        rgba(12, 10, 9, 0.96) 0%,
+        rgba(12, 10, 9, 0.88) 24%,
+        rgba(12, 10, 9, 0.68) 43%,
+        rgba(12, 10, 9, 0.30) 65%,
+        rgba(12, 10, 9, 0.06) 100%
+    );
+}
+
+/* Título mais compacto para não competir com as taças */
+.hero h1 {
+    max-width: 680px;
+    font-size: clamp(44px, 4.7vw, 68px);
+    line-height: 1.16;
+    letter-spacing: -1.5px;
+}
+
+/* Descrição alinhada com o novo título */
+.hero p {
+    max-width: 500px;
+}
+
+/* Ajustes para tablets e celulares */
+@media (max-width: 768px) {
+    .hero::before {
+        background-position: 60% center;
+    }
+
+    .hero::after {
+        background: linear-gradient(
+            90deg,
+            rgba(12, 10, 9, 0.90) 0%,
+            rgba(12, 10, 9, 0.78) 55%,
+            rgba(12, 10, 9, 0.48) 100%
+        );
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        font-size: clamp(32px, 8vw, 45px);
+        letter-spacing: -1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero::after {
+        background: rgba(12, 10, 9, 0.72);
+    }
+
+    .hero h1 {
+        font-size: clamp(30px, 8vw, 38px);
+        line-height: 1.2;
+    }
+}
+
+
+/* SAPORE 2.0 — ENQUADRAMENTO SOBRE NÓS */
+
+.sobre-imagem img {
+    object-position: center 75%;
+    transform: scale(1.12);
+}
+
+.sobre-imagem:hover img {
+    transform: scale(1.16);
+}
+
+
+/* =====================================
+   SAPORE 2.0 — CARDÁPIO PREMIUM
+===================================== */
+
+.prato {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #2d2b29;
+    border: 1px solid rgba(245, 240, 232, 0.07);
+    border-radius: 10px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.prato:hover {
+    transform: translateY(-7px);
+    border-color: rgba(193, 109, 69, 0.45);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.24);
+}
+
+.prato img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.5s ease;
+}
+
+.prato:hover img {
+    transform: scale(1.045);
+}
+
+.prato-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 26px 24px;
+}
+
+.prato-conteudo h3 {
+    line-height: 1.3;
+}
+
+.prato-conteudo p {
+    min-height: 0;
+    flex: 1;
+}
+
+.prato-preco {
+    margin-top: 28px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(245, 240, 232, 0.08);
+    font-size: 21px;
+    font-weight: 700;
+}
+
+@media (max-width: 480px) {
+    .prato img {
+        height: 210px;
+    }
+
+    .prato-conteudo {
+        padding: 24px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .prato,
+    .prato img {
+        transition: none;
+    }
+}
+
+
+/* =====================================
+   SAPORE 2.0 — ZOOM CONTROLADO DO CARDÁPIO
+===================================== */
+
+.prato-imagem {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.prato-imagem img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.prato:hover .prato-imagem img {
+    transform: scale(1.045);
+}
+
+@media (max-width: 480px) {
+    .prato-imagem {
+        height: 210px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .prato-imagem img {
+        transition: none;
+    }
+}
