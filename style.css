@@ -1,5 +1,20 @@
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* Fontes hospedadas localmente (SIL Open Font License 1.1; veja assets/fontes/). */
+@font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('assets/fontes/dm-sans-latin.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: url('assets/fontes/PlayfairDisplay-wght.ttf') format('truetype');
+}
 
 /* =====================================
    SAPORE 2.0 - IDENTIDADE VISUAL PREMIUM
@@ -711,6 +726,19 @@ section[id] {
 .btn-reserva {
     width: 100%;
     margin-top: 8px;
+}
+
+/* Sem JavaScript o botão continua desativado, e nada é enviado. */
+.btn-reserva:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.aviso-sem-js {
+    color: #625c56;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: -12px 0 24px;
 }
 
 .aviso-demonstracao {

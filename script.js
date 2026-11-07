@@ -15,7 +15,7 @@ const pratos = [
         categoria: "entrada",
         descricao: "Pão artesanal tostado com tomates frescos, manjericão e azeite extravirgem.",
         preco: 28.90,
-        imagem: "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=800&q=85"
+        imagem: "assets/bruschetta.jpg"
     },
     {
         nome: "Salada Caprese",
@@ -64,14 +64,14 @@ const pratos = [
         categoria: "sobremesa",
         descricao: "Sobremesa italiana com mascarpone, café e uma delicada camada de cacau.",
         preco: 29.90,
-        imagem: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=85"
+        imagem: "assets/tiramisu.jpg"
     },
     {
         nome: "Panna Cotta",
         categoria: "sobremesa",
         descricao: "Creme italiano delicado acompanhado de calda artesanal de frutas vermelhas.",
         preco: 27.90,
-        imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=85"
+        imagem: "assets/panna-cotta.jpg"
     },
     {
         nome: "Cannoli Siciliano",
@@ -92,7 +92,7 @@ const pratos = [
         categoria: "bebida",
         descricao: "Café espresso encorpado, preparado com grãos selecionados.",
         preco: 9.90,
-        imagem: "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=85"
+        imagem: "assets/espresso.jpg"
     }
 ];
 
@@ -497,3 +497,18 @@ formularioReserva.addEventListener("submit", (evento) => {
 
     formularioReserva.reset();
 });
+
+
+// =====================================
+// ATIVAÇÃO DA SIMULAÇÃO
+// =====================================
+
+// O botão vem desativado no HTML. Só é liberado depois que todo o
+// script carregou e o envio passou a ser interceptado acima. Assim,
+// sem JavaScript, nenhum dado preenchido sai pela URL.
+
+const botaoReserva = formularioReserva.querySelector(".btn-reserva");
+
+if (botaoReserva) {
+    botaoReserva.disabled = false;
+}

@@ -350,9 +350,17 @@
                     </h3>
 
                     <p class="formulario-introducao">
-                        Preencha os dados para testar
-                        nosso sistema de reservas.
+                        Use dados fictícios para testar a simulação.
+                        Nenhuma reserva real será efetuada, e os dados
+                        não são enviados.
                     </p>
+
+                    <noscript>
+                        <p class="aviso-sem-js">
+                            A simulação de reservas precisa de JavaScript.
+                            Sem ele, o botão fica desativado e nenhum dado é enviado.
+                        </p>
+                    </noscript>
 
                     <form id="form-reserva">
 
@@ -523,7 +531,8 @@
 
                         <button
                             type="submit"
-                            class="btn btn-primario btn-reserva">
+                            class="btn btn-primario btn-reserva"
+                            disabled>
                             Simular reserva
                         </button>
 
